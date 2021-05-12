@@ -1,4 +1,4 @@
-import {Button, Input} from "antd";
+import {Button} from "antd";
 import React, {useState, useEffect} from 'react'
 import firebase from "firebase"
 import { app } from "../base"
@@ -9,7 +9,7 @@ const memories = app.firestore().collection("Memories");
 //Creating functions that allows to push 
 const Home = () => {
     const [text, setText] = useState("");
-    const [done, setDone] = useState(false);
+    const [done] = useState(false);
     const [thumbs, setThumbs] = useState(false);
     const [data, setData] =useState([]);
 
@@ -50,7 +50,7 @@ const Home = () => {
   };
 
     useEffect(()=>{
-        readData();
+        readData(); // eslint-disable-next-line
     }, []);
     return (
         <div style={{
